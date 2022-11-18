@@ -111,8 +111,10 @@ public class Principal {
         System.out.println("-------------------------------");
         System.out.println(facturaControl.listarC());
 
+        var nueva=new String[1];
+        nueva[0]="03";
         
-        System.out.println(facturaControl.modificarF(data, facturaControl1);
+        System.out.println(facturaControl.modificarF(nueva, facturaControl1));
         System.out.println("");
 
         System.out.println(facturaControl.eliminarC(data));
