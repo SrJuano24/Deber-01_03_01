@@ -73,7 +73,6 @@ public class FacturaControl {
         return retorno;
     }
 
-
     public final List<Factura> listar() {
         return this.facturaServiceImpl.listar();
 
@@ -82,5 +81,65 @@ public class FacturaControl {
     public final List<Cliente> listarC() {
         return this.clienteServiceImpl.listar();
 
+    }
+
+   public String eliminarF(String[] data) {
+        var retorno = "No se elimino la factura";
+        var codigoFactura =  Integer.valueOf(data[0]).intValue();
+        var x = true;
+        for (var facturas : this.facturaServiceImpl.listar()) {
+            if (facturas.getNumeroFactura() == codigoFactura) {
+                x = false;
+            } else {
+            }
+        }
+        if (x) {
+            retorno += ", no existe la factura ";
+        } else {
+            this.facturaServiceImpl.eliminar(codigoFactura);
+            retorno = "Se elimino la factura Num. " + codigoFactura;
+        }
+        return retorno;
+    }
+
+    public String eliminarC(String[] data) {
+        var retorno = "No se elimino el Cliente ";
+        var codigoCliente =  Integer.valueOf(data[7]).intValue();
+        var x = true;
+        for (var clientes : this.clienteServiceImpl.listar()) {
+            if (clientes.getCodigo() == codigoCliente) {
+                x = false;
+            } else {
+            }
+        }
+        if (x) {
+            retorno += ", no existe el Cliente ";
+        } else {
+            this.clienteServiceImpl.eliminar(codigoCliente);
+            retorno = "Se elimino correctamente al cliente COD. " + codigoCliente;
+        }
+        return retorno;
+    }
+    
+    public String modificarF(String[] data, FacturaControl facturaControl){
+    var retorno="No se modifico correctamente ";
+    var numeroFactura=Integer.valueOf(data[0]).intValue();;
+    var numeroFacturaModificada= facturaControl;
+    var x= true;
+        for(var facturas:this.facturaServiceImpl.listar()){
+            if(facturas.getNumeroFactura() == numeroFactura){
+                x=false;
+            }
+        }
+        if(x){
+        retorno+=", no existe la factura ";
+        }else{
+        this.facturaServiceImpl.modificar(numeroFactura,numeroFacturaModificada.listar().get(0));
+        retorno="Se elimino Correctamente a "+numeroFactura;
+        }
+        return retorno;
+    
+    
+    
     }
 }

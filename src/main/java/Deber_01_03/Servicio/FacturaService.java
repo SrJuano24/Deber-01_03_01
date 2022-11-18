@@ -16,7 +16,7 @@ public interface FacturaService {
 
     public abstract void crear(Factura factura);
 
-    public abstract void modificar(int numeroFactura, Factura facturamodificada);
+    public abstract void modificar(int numeroFactura, Factura datamodificada);
 
     public abstract void eliminar(int numeroFactura);
 

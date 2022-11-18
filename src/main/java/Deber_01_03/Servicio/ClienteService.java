@@ -18,7 +18,7 @@ public interface ClienteService {
 
     public abstract void modificar(int codigoCliente, Cliente clienteModificado);
 
-    public abstract void eliminar(int codigoCliete);
+    public abstract void eliminar(int codigoCliente);
 
     public abstract List<Cliente> listar();
 

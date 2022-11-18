@@ -44,7 +44,7 @@ public class ClienteServiceImpl implements ClienteService {
     public void eliminar(int codigoCliente) {
         var indice = 0;
         for (var cliente : this.clienteList) {
-            if (cliente.getCodigo() == codigoCliente) {
+            if (cliente.getCodigo()== codigoCliente) {
                 this.clienteList.remove(indice);
                 break;
             } else {
